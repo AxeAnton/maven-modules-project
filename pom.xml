@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?> <!--2й урок 1. Модули в Марвене, практически такой же как и у обычных модулей, но здесь есть у радительского модуля свой pom файлик-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 2й урок 2.  у родительского модуля нет тега perent! -->
+    <groupId>ru.ifmo</groupId>
+    <artifactId>maven-modules-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--  11. 2й урок Т.к, родительский модуль не попадает в архив jar, а нужен только для создания зависимостей между общим - common модулем и дочерними server, client необходимо указать данный pom файл -->
+    <packaging>pom</packaging>
+
+    <!-- 2й урок 12.  также в род.файле должен быть список дочерних модулей и их названия  -->
+    <modules>
+        <module>client</module>
+        <module>server</module>
+        <module>common</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+    <!--2й урок 3. можно подключать плагины и библиотеки, которые будут доступны всем дочерним модулям-->
+    <!--2й урок 4. дочерних модулей может быть сколько угодно и у каждого будет свой pom файлик, в этом файлике -->
+</project>

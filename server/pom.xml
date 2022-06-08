@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--  2й урок 4.  Указание на родительский модуль тег <parent> должно быть в дочерних классах обязательно, благодоря этому дочерние файлы будут доступны для родительского     -->
+    <parent>
+        <artifactId>maven-modules-project</artifactId>
+        <groupId>ru.ifmo</groupId> <!-- 2й урок 5. будет одинаковый и у родительского и дочерних модулей-->
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <!--2й урок 6. Т.к, дочерний наследует groupId и version родительского модуля их суда прописывать не надо, то есть идинфикационная группа дочернего модуля состоит из одного тега <artifactId> -->
+    <artifactId>server</artifactId>
+
+    <!-- 2й урок 7. ЗАВИСИМОСТИ и ПЛАГИНЫ дочернего модуля доступны только текущему/дочернему модулю -->
+    <!-- 2й урок 8. Общие зависимости можно выделить в общий модуль - common, а в дочерних оставить только индивидуальные-->
+    <!-- 2й урок 9. Один дочерний модуль может зависеть от другого дочернего модуля  -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <!--2й урок 10. Важно что бы зависимости от общего-common модуля, были прописаны в дочерних классах, groupId, artifactId, version того модуля от которого зависит модуль -->
+    <dependencies>
+        <dependency>
+            <groupId>ru.ifmo</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+</project>
